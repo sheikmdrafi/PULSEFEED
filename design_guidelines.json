@@ -1,0 +1,116 @@
+{
+  "theme": "dark",
+  "archetype": "Archetype 4: Swiss & High-Contrast (Editorial/Terminal Hybrid)",
+  "design_philosophy": {
+    "concept": "Bloomberg Terminal meets modern editorial design. A serious, authoritative newsroom aggregator that emphasizes live data, high density, and stark contrast.",
+    "forbidden_elements": [
+      "AI slop purple-violet gradients",
+      "Generic Inter/Roboto fonts for headings",
+      "Centered equal card grids",
+      "Soft, rounded 'SaaS' aesthetics (no heavy drop shadows, no soft glassmorphism)"
+    ],
+    "core_elements": [
+      "Void black and deep charcoal backgrounds",
+      "Signal Red and Warning Amber accents",
+      "Strict grids, 1px solid borders separating all content modules",
+      "Editorial serif headlines paired with monospace datestamps and tickers"
+    ]
+  },
+  "colors": {
+    "background_base": "#050505",
+    "background_surface": "#121212",
+    "background_hover": "#1C1C1E",
+    "border": "#262626",
+    "border_highlight": "#3F3F46",
+    "accent_primary": "#FF3333",
+    "accent_secondary": "#FFB000",
+    "accent_tertiary": "#00FF41",
+    "text_primary": "#F4F4F5",
+    "text_secondary": "#A1A1AA",
+    "text_muted": "#52525B"
+  },
+  "typography": {
+    "font_families": {
+      "headline": "'Playfair Display', serif",
+      "body": "'IBM Plex Sans', sans-serif",
+      "mono": "'JetBrains Mono', monospace"
+    },
+    "hierarchy": {
+      "h1_hero": "text-4xl sm:text-5xl font-serif font-black tracking-tight leading-none",
+      "h2_section": "text-2xl sm:text-3xl font-serif font-bold tracking-tight",
+      "article_headline": "text-lg sm:text-xl font-serif font-bold leading-tight hover:text-accent_secondary transition-colors",
+      "ticker_text": "text-xs sm:text-sm font-mono tracking-[0.1em] uppercase",
+      "metadata": "text-xs font-mono text-text_secondary uppercase tracking-widest",
+      "body_text": "text-sm sm:text-base font-body text-text_secondary leading-relaxed"
+    }
+  },
+  "layout_strategy": {
+    "overall_structure": "Mode B: 'Control Room' Grid. High density, 100% viewport width usage, sticky components for live feel.",
+    "grid_system": "grid-cols-1 md:grid-cols-12 gap-1 md:gap-4 bg-background_base",
+    "regions": {
+      "top_bar": "Sticky at top, z-50. Houses the 'LIVE' indicator, clock, and react-fast-marquee headline ticker.",
+      "sidebar_left": "col-span-12 md:col-span-2 or 3. Sticky navigation, Country/Region filter chips, Category list.",
+      "main_feed": "col-span-12 md:col-span-6 or 7. Asymmetrical masonry or mixed-density bento grid (1 large hero article, followed by dense 2-col or list items).",
+      "sidebar_right": "col-span-12 md:col-span-3. Breaking news timeline, saved articles (bookmarks), quick stats."
+    },
+    "spacing": "Dense internal padding (p-3, p-4) for widgets. Use border-collapse style layouts with 1px solid borders instead of floating cards."
+  },
+  "components": {
+    "article_card": {
+      "style": "Flat, sharp edges (rounded-none). Background #121212, 1px border #262626. No shadow.",
+      "hover_state": "Border changes to #FFB000 or #52525B. Image thumbnail un-grayscales (from grayscale to grayscale-0).",
+      "image": "max-h-48 w-full object-cover filter grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-300",
+      "content_layout": "Flex-col, gap-2, p-4. Metadata (mono) -> Headline (serif) -> Source/Flag chip (flex row)."
+    },
+    "filter_chip": {
+      "style": "px-3 py-1 text-xs font-mono border border-border text-text_secondary hover:text-text_primary hover:border-accent_secondary transition-colors cursor-pointer uppercase",
+      "active_state": "bg-text_primary text-background_base font-bold"
+    },
+    "live_indicator": {
+      "style": "Flex items-center gap-2 text-accent_primary font-mono text-xs font-bold uppercase",
+      "animation": "w-2 h-2 rounded-full bg-accent_primary animate-ping"
+    },
+    "ticker": {
+      "library": "react-fast-marquee",
+      "style": "bg-accent_primary text-background_base font-mono font-bold py-1 border-y border-border"
+    }
+  },
+  "motion_and_interaction": {
+    "hover_effects": "Micro-interactions. Text color shifts, sharp border color changes. No bouncy transforms.",
+    "live_updates": "When auto-refresh hits (60s), new items flash briefly with a #1C1C1E background.",
+    "accessibility": "focus:ring-2 focus:ring-accent_secondary focus:outline-none on all interactive elements. aria-live regions for breaking news."
+  },
+  "media": {
+    "image_urls": [
+      {
+        "category": "breaking_news_hero",
+        "url": "https://images.unsplash.com/photo-1681393993243-f7ef6a79291d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjY2NzN8MHwxfHNlYXJjaHwzfHxnbG9iYWwlMjBuZXdzJTIwYnJlYWtpbmclMjB3b3JsZCUyMHBvbGl0aWNzJTIwZXZlbnRzfGVufDB8fHx8MTc3OTM0MDcwN3ww&ixlib=rb-4.1.0&q=85",
+        "description": "Russian news website screenshot - use as placeholder for world news hero"
+      },
+      {
+        "category": "politics_thumbnail",
+        "url": "https://images.pexels.com/photos/8850825/pexels-photo-8850825.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "description": "USA globe focus with sticky note - use for US/Politics"
+      },
+      {
+        "category": "world_press_thumbnail",
+        "url": "https://images.pexels.com/photos/35743103/pexels-photo-35743103.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "description": "Journalists and videographers gathering - use for global/press coverage"
+      },
+      {
+        "category": "tech_thumbnail",
+        "url": "https://images.pexels.com/photos/5480781/pexels-photo-5480781.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "description": "Data center servers - use for Tech/Business news"
+      }
+    ]
+  },
+  "instructions_to_main_agent": [
+    "Build a robust, real-time global news dashboard tailored for a serious, journalistic tone.",
+    "CRITICAL: Do NOT use standard Shadcn card components if they force rounded corners and shadows. Override borders to be sharp (rounded-none) and 1px solid. Emphasize a 'control room' terminal aesthetic.",
+    "CRITICAL: Do NOT use generic fonts like Inter or Roboto for headings. You MUST use 'Playfair Display' for article titles/headers, 'IBM Plex Sans' for body UI, and 'JetBrains Mono' for all timestamps, tags, and tickers.",
+    "Integrate 'react-fast-marquee' for a top-level breaking news ticker.",
+    "Ensure the layout feels asymmetrical yet strictly grid-aligned, mimicking a high-end editorial site or Bloomberg Terminal.",
+    "Implement a 60-second auto-refresh polling mechanism for the RSS feeds, accompanied by a 'LIVE' ping indicator.",
+    "Implement `data-testid` on all filters, article cards, search inputs, and bookmark buttons for testing purposes."
+  ]
+}
